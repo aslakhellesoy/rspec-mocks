@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
-$LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
 require "rspec/mocks/version"
+require "rspec/core/version"
+require "rspec/expectations/version"
 
 Gem::Specification.new do |s|
   s.name        = "rspec-mocks"
@@ -22,7 +23,10 @@ Gem::Specification.new do |s|
   s.rdoc_options     = ["--charset=UTF-8"]
   s.require_path     = "lib"
 
-  s.add_dependency "rspec-core",         RSpec::Mocks::Version::STRING
-  s.add_dependency "rspec-expectations", RSpec::Mocks::Version::STRING
+  s.add_dependency             "rspec-expectations", RSpec::Expectations::Version::STRING
+  s.add_development_dependency "rspec-core",         RSpec::Core::Version::STRING
+  s.add_development_dependency "rake",               ">= 0.8.7"
+  s.add_development_dependency "cucumber",           ">= 0.9.1"
+  s.add_development_dependency "aruba",              ">= 0.2.3"
 end
 
